@@ -8,8 +8,6 @@ Windrose, a Python library to implement wind analysis, will be used to plot wind
 
 Windrose package link: https://github.com/python-windrose/windrose
 
-A python package named
-
 ## Install
 
 ### Requirements
