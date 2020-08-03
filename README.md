@@ -4,7 +4,7 @@ CMSC6950 Course Project by Shuo Wang
 ## Introduction
 A wind rose is a graphic tool to describe the wind speed and direction distribution at a particular location.
 
-Windrose, a Python library to implement wind analysis, will be used to plot windroses and fit Weibull probability density functions.
+Windrose, a Python library to implement wind analysis, will be used to plot wind roses and fit Weibull probability density functions.
 
 Windrose package link: https://github.com/python-windrose/windrose
 
@@ -14,8 +14,8 @@ Windrose package link: https://github.com/python-windrose/windrose
 
 - matplotlib http://matplotlib.org/
 - numpy http://www.numpy.org/
+- Pandas http://pandas.pydata.org/
 - and naturally python https://www.python.org/
-- Pandas http://pandas.pydata.org/ (to feed plot functions easily)
 
 ### Install latest release version via pip
 
