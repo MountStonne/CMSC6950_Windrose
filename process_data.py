@@ -14,4 +14,4 @@ df = df.astype('float64')
 df['speed_x'] = df['speed'] * np.sin(df['direction'] * pi / 180.0)
 df['speed_y'] = df['speed'] * np.cos(df['direction'] * pi / 180.0)
 
-df.to_csv('windData.csv', index = False)
+df.to_csv('windData.csv', index = True)
