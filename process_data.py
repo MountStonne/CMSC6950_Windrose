@@ -11,6 +11,19 @@ df = df.set_index('time')
 df = df.drop(['UTC'])
 df = df.astype('float64')
 
+# add a function to clean the None value
+VAR_DEFAULT = 'speed'
+DIR_DEFAULT = 'direction'
+def clean_df(df, var=VAR_DEFAULT, direction=DIR_DEFAULT):
+    '''
+    Remove nan and var=0 values in the DataFrame
+    if a var (wind speed) is nan or equal to 0, this row is
+    removed from DataFrame
+    if a direction is nan, this row is also removed from DataFrame
+    '''
+    return(df[df[var].notnull() & df[var]!=0 & df[direction].notnull()])
+df = clean_df(df)
+
 df['speed_x'] = df['speed'] * np.sin(df['direction'] * pi / 180.0)
 df['speed_y'] = df['speed'] * np.cos(df['direction'] * pi / 180.0)
 
