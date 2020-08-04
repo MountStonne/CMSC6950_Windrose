@@ -1,0 +1,101 @@
+
+% This is the main file to setup the document.
+% Document organization and appearance settings are all done here
+% Each chapter is a separate tex file, all linked together here
+
+
+% Preamble (document settings) -----------------------------------------------------------
+% Document type and font --
+\documentclass[10pt]{report}
+\usepackage[utf8]{inputenc} %utf-8 encoding for ASCII symbols
+
+% insert packages here --
+\usepackage{graphicx}       %for handling images
+
+\usepackage{amsmath}        %for math symbols
+
+\usepackage{breakcites}     %to avoid citations extending into the margin
+
+\usepackage[margin=1in]{geometry}   %to reduce margins to 1 inch, default margins wasted a lot of space
+
+\usepackage{sidecap}        %to enable side captions on figures
+
+\usepackage{setspace}       %to enable doublespacing   
+
+\usepackage[
+backend=biber,
+style=apa,
+citestyle=apa
+]{biblatex}       %use the biblatex package
+
+\addbibresource{mybibfile1.bib}   %path to the bib file
+\addbibresource{mybibfile2.bib}
+
+
+\usepackage{hyperref}       % to create a linked table of contents
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+% Set path to images
+\graphicspath{ {images/} }  % Direct to the main image folder, always good to create sub-folders to organize images for individual chapters
+
+\singlespacing  %making text double spaces
+
+% End of preamble
+%-------------------------------------------------------------------------------------------
+\begin{document}
+
+% Making title page
+\input{chapters/titlepage}
+
+% Starting frontmatter:
+% Abstract goes here
+\doublespacing
+ \input{chapters/abstract}
+\pagenumbering{roman}   % Roman page numbering to start from abstract onwards
+
+\singlespacing          % keep pre-content single spaced
+\listoffigures          % generate list of figures
+\listoftables           % generate list of tables
+
+% End of frontmatter
+
+% Insert table of contents
+ \tableofcontents
+
+% Main matter starts here --
+% Inserting individual chapters. Mention chapter titles here and simple link the chapter's tex file
+
+ \chapter{Introduction}     % Mention chapter title here
+  \pagenumbering{arabic}    % We want Arabic numerals for main matter page numbering
+ \input{chapters/chapter01} % Link to the chapter tex file
+
+
+\chapter{Some Literature review}
+\input{chapters/chapter02}
+
+ \chapter{Research update}
+ \input{chapters/chapter03}
+
+  \chapter{Some chapter}
+ \input{chapters/chapter04}
+ 
+ \chapter{Planning and Conclusion}
+ \input{chapters/chapter05}
+
+    
+% Include appendix      % Set this up if needed
+%\appendix
+
+% Insert bibliography here
+\printbibliography
+
+\end{document}
+
+% End of document
+%-----------------------------------------------------------------------------------------------------
