@@ -1,2 +1,4 @@
 # MacOS system file
 .DS_Store
+# wind data file
+winddata.csv
