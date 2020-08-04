@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from math import pi
 
-df = pd.read_csv("windRawData.csv", parse_dates=['time'])
+df = pd.read_csv("https://www.smartatlantic.ca/erddap/tabledap/SMA_st_johns_wharf.csv?time%2Cwind_spd_avg%2Cwind_dir_avg&time%3E=2019-08-01T00%3A00%3A00Z&time%3C=2020-07-31T23%3A59%3A59Z", parse_dates=['time'])
 df = df.rename(columns={
     'wind_spd_avg' : 'speed',
     'wind_dir_avg' : 'direction',
