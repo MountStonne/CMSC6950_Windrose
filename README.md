@@ -47,3 +47,6 @@ Then regenerate using:
 ```bash
 $ make
 ```
+
+## Workflow
+Find data >> Data management and analysis >> Data visualization >> Generate report
