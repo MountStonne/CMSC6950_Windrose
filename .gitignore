@@ -2,3 +2,5 @@
 .DS_Store
 # data file
 *.csv
+# figures
+*.png
