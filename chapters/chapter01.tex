@@ -6,8 +6,8 @@ A wind rose is a graphic tool used by meteorologists to give a succinct view of 
 % \textcite{parish2009propagation}
 
 \section{Data source}
-The wind data is obtained directly from the SmartAtlantic Alliance which is an initiative of the Fisheries and Marine Institute of Memorial University of Newfoundland's Centre for Applied Ocean Technology (CTec) and the Centre for Ocean Ventures and Entrepreneurship (COVE) of Halifax.\par
-The URL of CSV data file can be generated from their website as the figure shown below.\par
+The wind data of St. John's was obtained directly from the SmartAtlantic Alliance which is an initiative of the Fisheries and Marine Institute of Memorial University of Newfoundland's Centre for Applied Ocean Technology (CTec) and the Centre for Ocean Ventures and Entrepreneurship (COVE) of Halifax.\par
+The URL of CSV data file was generated from their website as the figure shown below.\par
 
 \begin{figure}[h!]
     \centering
@@ -19,3 +19,6 @@ The URL of CSV data file can be generated from their website as the figure shown
 In this project, the information of timestamp, wind speed and wind direction in the last 365 days (from 1 August 2019 to 31 July 2020) was collected and used to plot wind rose.\par
 
 \section{Analysis workflow}
+After collecting the raw wind data, it was processed by the methods from python package Numpy and Pandas. The details of what processes have been done will be discussed in the next chapter.\par
+The processed wind data was used to implement the visualization and 5 different graphs were drew with python package Matplotlib tools.\par
+As plotting the graphs, the wind information of St. John's reflected from the images was also discussed.
