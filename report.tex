@@ -19,6 +19,7 @@
 \usepackage[margin=1in]{geometry}   %to reduce margins to 1 inch, default margins wasted a lot of space
 
 \usepackage{sidecap}        %to enable side captions on figures
+\usepackage{dirtytalk}      %to write quotations
 
 \usepackage{setspace}       %to enable doublespacing   
 
@@ -98,7 +99,7 @@
     \textbf{Abstract}
 \end{center}
 
-Wind rose is a graphic tool to describe the wind speed and direction distribution at a particular location. In this project, wind data of St. John's processed by Numpy and Pandas, wind rose was plotted by Matplotlib. After five different plots was analysed, the result indicated that most wind in St. John's is from northwest and southeast, and the speed is range from 0.05 m/s to 19.62 m/s, which will be useful for environmental research and infrastructure construction.
+Wind rose is a graphic tool to describe the wind speed and direction distribution at a particular location. In this project, wind data of St. John's processed by Numpy and Pandas, wind rose was plotted by Matplotlib. After five different plots were analysed, the result indicated that most wind in St. John's is from northwest and southeast, and the average wind speed is range from 0.05 m/s to 19.62 m/s, which will be useful for environmental research and infrastructure construction.
 
 \pagenumbering{roman}   % Roman page numbering to start from abstract onwards
 
@@ -144,18 +145,25 @@ The URL of CSV data file was generated from their website as the figure shown be
 In this project, the information of timestamp, wind speed and wind direction in the last 365 days (from 1 August 2019 to 31 July 2020) was collected and used to plot wind rose.\par
 
 \section{Analysis workflow}
-After collecting the raw wind data, it was processed by the methods from python package Numpy and Pandas. The details of what processes have been done will be discussed in the next chapter.\par
+This project was implemented by four main steps as shown in the figure below.\par
+After collecting the raw wind data, it was processed by the tools from python package Numpy and Pandas. The details of what processes have been done will be discussed in the next chapter.\par
 The processed wind data was used to implement the visualization and five different graphs were drew with python package Matplotlib tools.\par
 As plotting the graphs, the wind distribution of St. John's reflected from the images was also discussed.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.75\textwidth]{images/workflow.png}
+    \caption{Project workflow}
+    \label{fig: PaleBlueDot}    
+\end{figure}
 
 
-\chapter{Data management and analysis}
+\chapter{Data Management and Analysis}
 In this chapter the raw wind data was downloaded, processed and regenerated for plotting.
 
 \section{Data process by Pandas}
 
 \subsection{Read raw data}
-The raw data imported to a dataframe by \texttt{pandas.read\_csv} from the URL generated before has a size of 44338 rows $\times$ 3 columns. The first several lines were shown in figure below.
+The raw data that imported to a dataframe by \texttt{pandas.read\_csv} from the URL generated before has a size of 44338 rows $\times$ 3 columns. The first several lines were shown in figure below.
 
 \begin{figure}[h!]
     \centering
@@ -165,7 +173,7 @@ The raw data imported to a dataframe by \texttt{pandas.read\_csv} from the URL g
 \end{figure}
 
 \subsection{Adjust data format}
-The right two columns were renamed to "speed" and "direction" by \texttt{pandas.DataFrame.rename} and the left one column was set to the index of the dataframe by \texttt{pandas.DataFrame.set\_index}. Then the send row which is the unit was removed by \texttt{pandas.DataFrame.drop}. The dataframe type was converted to float64 by \texttt{pandas.DataFrame.astype} for the following calculations.\par
+The right two columns were renamed to \say{speed} and \say{direction} by \texttt{pandas.DataFrame.rename} and the left one column was set to the index of the dataframe by \texttt{pandas.DataFrame.set\_index}. Then the second row which is the unit was removed by \texttt{pandas.DataFrame.drop}. The dataframe type was converted to float64 by \texttt{pandas.DataFrame.astype} for the following calculations.\par
 After the adjustment, the dataframe was more clear as shown in figure below.\par
 \begin{figure}[h!]
     \centering
@@ -177,7 +185,7 @@ After the adjustment, the dataframe was more clear as shown in figure below.\par
 The wind speed on x and y axis was calculated by the following functions:\par
 \[Speed_x = speed \times \sin(direction \times \pi / 180)\]
 \[Speed_y = speed \times \cos(direction \times \pi / 180)\]
-After the generation, there were two more columns in the dataframe as shown in the figure 2.3 below.\par
+After the generation, there were two more columns in the dataframe as shown in figure 2.3 below.\par
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.50\textwidth]{images/processed_dataframe_xy.png}
@@ -187,7 +195,7 @@ After the generation, there were two more columns in the dataframe as shown in t
 
 
 \section{Remove none and zero values}
-A python function called \texttt{clean\_df} was generated to remove the none and zero values. After that, a new CSV file was generated by \texttt{pandas.DataFrame.to\_csv} as shown below.
+A python function called \texttt{clean\_df} was generated to remove the none and zero values. After that, a new CSV file was generated by \texttt{pandas.DataFrame.to\_csv} as shown in figure 2.4 below.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.50\textwidth]{images/processed_data.png}
@@ -196,7 +204,7 @@ A python function called \texttt{clean\_df} was generated to remove the none and
 \end{figure}
 
  \chapter{Data Visualization}
- In this chapter five plot was analysed in order to summary the wind condition of St. John's.
+ In this chapter five plots were analysed in order to summary the wind distribution of St. John's.
 
 \section{Cartesian coordinate system plot}
 
@@ -208,7 +216,7 @@ A python function called \texttt{clean\_df} was generated to remove the none and
     \label{fig: PaleBlueDot}    
 \end{figure}
 The figure above indicated that the wind speed on X axis ranged from about -15 m/s to 8 m/s, on Y axis ranged from about -17 m/s to 12 m/s in the last whole year.
-\section{Wind rose}
+\section{Wind rose plot}
  \subsection{Wind rose like a stacked histogram with normed results}
  \begin{figure}[h!]
     \centering
@@ -225,7 +233,7 @@ The wind rose below indicated that most wind directions are northwest and southe
     \caption{Another stacked histogram representation, not normed, with bins limits}
     \label{fig: PaleBlueDot}    
 \end{figure}
-The second figure below shows the exact values of wind speed instead of percentage.
+For the second figure above, the bins limit was set from 0 to 7 which is 8 in total.
 
 \subsection{A wind rose in filled representation, with a controled colormap}
  \begin{figure}[h!]
@@ -246,7 +254,7 @@ Compared to the two figures above, this wind rose is more consecutive. Wind spee
 After adding the contours, the wind rose was visualized better.
  
  \chapter{Conclusion}
- The graph results shows that more than 50 percent wind in St. John's is from northwest and southeast. The maximum wind is in the last year is 19.62 m/s, while the minimum wind is m/s. The wind direction and speed may change with season changed which will be explored in the future studies.
+ The graph results showed that more than 50 percent wind in St. John's was from northwest and southeast in the last year. The maximum average wind speed was 19.62 m/s, while the minimum average wind speed is 0.05 m/s. The wind direction and speed may change with season changed which will be explored in the future studies.
 
 % Insert bibliography here
 \printbibliography
