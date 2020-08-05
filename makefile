@@ -20,11 +20,9 @@ winddata.csv: process_data.py
 
 clean: almost_clean
 	rm report.pdf
-	rm report.run.xml
 	rm report.bbl
 
 almost_clean:
 	latexmk -c
 	rm windData.csv
 	rm report.bbl
-	rm report.run.xml
