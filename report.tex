@@ -50,12 +50,62 @@ citestyle=apa
 \begin{document}
 
 % Making title page
-\input{chapters/titlepage}
+\begin{titlepage}
+   \begin{center}
+   \begin{doublespacing}
+
+       \begin{figure}
+       \centering
+       \includegraphics[width=0.7\textwidth]{images/MUN_Logo_RGB.png}
+       \end{figure}
+       
+       
+       \vspace*{5mm}
+       {\large\textbf{CMSC6950 COURSE PROJECT}}
+
+       %\textbf{DOCTOR OF PHILOSOPHY}
+       \vspace{30mm}
+       
+       {\Large\textbf{WINDROSE APPLICATION}}
+
+    
+            
+       \vspace{30mm}
+
+       {\Large\textbf{SHUO WANG}\\
+       %\textbf{}
+       }
+
+       \vfill
+       {\large \textbf{Department of Computer Science}\\
+       \textbf{August, 2020}}
+       
+    \end{doublespacing}
+
+   \end{center}
+\end{titlepage}
+
 
 % Starting frontmatter:
 % Abstract goes here
 \doublespacing
- \input{chapters/abstract}
+ \thispagestyle{plain}
+\begin{center}
+    \Large
+    \textbf{Windrose Application}
+        
+    \vspace{0.4cm}
+    \textbf{Shuo Wang}
+    
+    \vspace{0.4cm}
+    \large{Supervisor: Prof James Munroe}
+       
+    \vspace{0.9cm}
+    \textbf{Abstract}
+\end{center}
+
+wind rose is a graphic tool to describe the wind speed and direction distribution at a particular location. In this project, wind data of St. John's was processed by Numpy and Pandas, wind rose was plotted by Matplotlib. After five different plots was analysed, the result indicated that
+
 \pagenumbering{roman}   % Roman page numbering to start from abstract onwards
 
 \singlespacing          % keep pre-content single spaced
@@ -72,21 +122,63 @@ citestyle=apa
 
  \chapter{Introduction}     % Mention chapter title here
   \pagenumbering{arabic}    % We want Arabic numerals for main matter page numbering
- \input{chapters/chapter01} % Link to the chapter tex file
+ 
+ \section{Wind rose}
+
+A wind rose is a graphic tool used by meteorologists to give a succinct view of how wind speed and direction are typically distributed at a particular location. Historically, wind roses were predecessors of the compass rose, as there was no differentiation between a cardinal direction and the wind which blew from such a direction. Using a polar coordinate system of gridding, the frequency of winds over a time period is plotted by wind direction, with color bands showing wind speed ranges. The direction of the longest spoke shows the wind direction with the greatest frequency(\cite{wikipedia}). \par
+
+% \textcite{parish2009propagation}
+
+\section{Data source}
+The wind data of St. John's was obtained directly from the SmartAtlantic Alliance which is an initiative of the Fisheries and Marine Institute of Memorial University of Newfoundland's Centre for Applied Ocean Technology (CTec) and the Centre for Ocean Ventures and Entrepreneurship (COVE) of Halifax.\par
+The URL of CSV data file was generated from their website as the figure shown below.\par
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.50\textwidth]{images/data_source.png}
+    \caption{URL generation of CSV data file}
+    \label{fig: PaleBlueDot}    
+\end{figure}
+
+In this project, the information of timestamp, wind speed and wind direction in the last 365 days (from 1 August 2019 to 31 July 2020) was collected and used to plot wind rose.\par
+
+\section{Analysis workflow}
+After collecting the raw wind data, it was processed by the methods from python package Numpy and Pandas. The details of what processes have been done will be discussed in the next chapter.\par
+The processed wind data was used to implement the visualization and 5 different graphs were drew with python package Matplotlib tools.\par
+As plotting the graphs, the wind information of St. John's reflected from the images was also discussed.
 
 
 \chapter{Data management and analysis}
-\input{chapters/chapter02}
+In this chapter we will look at..
+
+\section{Some section}
+
+\subsection{Subsection}
+Backup your bullshit (and data)..
 
  \chapter{Data Visualization}
- \input{chapters/chapter03}
+ In this chapter we will look at..
+
+\section{Some section}
+
+\subsection{A basic scatter plot with transparency}
+
+% Insert images
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.50\textwidth]{images/figure1.png}
+    \caption{some description about the figure1}
+    \label{fig: PaleBlueDot}    
+\end{figure}
  
  \chapter{Planning and Conclusion}
- \input{chapters/chapter05}
+ This seems to be the last chapter in this report..
 
-    
-% Include appendix      % Set this up if needed
-%\appendix
+\section{Some section}
+
+\subsection{Subsection}
+Nobody will read your QE report.
+
 
 % Insert bibliography here
 \printbibliography
