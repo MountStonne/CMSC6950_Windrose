@@ -22,19 +22,17 @@
 
 \usepackage{setspace}       %to enable doublespacing   
 
-\usepackage[backend=biber,style=apa,citestyle=apa]{biblatex}       %use the biblatex package
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[style=apa]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+%\usepackage[backend=biber,style=apa,citestyle=apa]{biblatex}       %use the biblatex package
 
 \addbibresource{mybibfile1.bib}   %path to the bib file
 
 
 \usepackage{hyperref}       % to create a linked table of contents
-\hypersetup{
-    colorlinks,
-    citecolor=black,
-    filecolor=black,
-    linkcolor=black,
-    urlcolor=black
-}
+\hypersetup{colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black}
 
 % Set path to images
 \graphicspath{ {images/} }  % Direct to the main image folder, always good to create sub-folders to organize images for individual chapters
