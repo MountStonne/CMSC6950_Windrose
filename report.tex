@@ -119,20 +119,20 @@ wind rose is a graphic tool to describe the wind speed and direction distributio
  
  \section{Wind rose}
 
-A wind rose is a graphic tool used by meteorologists to give a succinct view of how wind speed and direction are typically distributed at a particular location. Historically, wind roses were predecessors of the compass rose, as there was no differentiation between a cardinal direction and the wind which blew from such a direction(\cite{wikipedia}). Using a polar coordinate system of gridding, the frequency of winds over a time period is plotted by wind direction, with color bands showing wind speed ranges. The direction of the longest spoke shows the wind direction with the greatest frequency as shown below. \par
+A wind rose is a graphic tool used by meteorologists to give a succinct view of how wind speed and direction are typically distributed at a particular location. Historically, wind roses were predecessors of the compass rose, as there was no differentiation between a cardinal direction and the wind which blew from such a direction(\cite{wikipedia}). \par Using a polar coordinate system of gridding, the frequency of winds over a time period is plotted by wind direction, with color bands showing wind speed ranges. The direction of the longest spoke shows the wind direction with the greatest frequency as shown below. \par
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.50\textwidth]{images/example.png}
-    \caption{An example wind rose }
-    \label{fig: PaleBlueDot}    
+    \caption{An example wind rose (\cite{Roubeyrie2018})}
+    \label{fig: PaleBlueDot}
 \end{figure}
 
 % \textcite{parish2009propagation}
 
 \section{Data source}
 The wind data of St. John's was obtained directly from the SmartAtlantic Alliance which is an initiative of the Fisheries and Marine Institute of Memorial University of Newfoundland's Centre for Applied Ocean Technology (CTec) and the Centre for Ocean Ventures and Entrepreneurship (COVE) of Halifax.\par
-The URL of CSV data file was generated from their website as the figure shown below.\par
+The URL of CSV data file was generated from their website as the figure shown below. \par
 
 \begin{figure}[h!]
     \centering
@@ -145,17 +145,17 @@ In this project, the information of timestamp, wind speed and wind direction in 
 
 \section{Analysis workflow}
 After collecting the raw wind data, it was processed by the methods from python package Numpy and Pandas. The details of what processes have been done will be discussed in the next chapter.\par
-The processed wind data was used to implement the visualization and 5 different graphs were drew with python package Matplotlib tools.\par
-As plotting the graphs, the wind information of St. John's reflected from the images was also discussed.
+The processed wind data was used to implement the visualization and five different graphs were drew with python package Matplotlib tools.\par
+As plotting the graphs, the wind distribution of St. John's reflected from the images was also discussed.
 
 
 \chapter{Data management and analysis}
-In this chapter we will look at..
+In this chapter the raw wind data was downloaded, processed and regenerated for plotting.
 
-\section{Some section}
+\section{Data process by Pandas}
 
-\subsection{Subsection}
-Backup your bullshit (and data)..
+\subsection{Read raw data}
+The raw data was import to a dataframe by \texttt{pandas.read\_csv} from the URL generated before.
 
  \chapter{Data Visualization}
  In this chapter we will look at..
