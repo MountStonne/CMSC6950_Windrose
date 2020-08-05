@@ -26,3 +26,5 @@ clean: almost_clean
 almost_clean:
 	latexmk -c
 	rm windData.csv
+	rm report.bbl
+	rm report.run.xml
